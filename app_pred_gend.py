@@ -21,7 +21,18 @@ if st.button("Predict Gender"):
     
     # Make prediction
     prediction = model.predict(input_data)
+
+    # Alternatively, use predict_proba if you need probabilities
+    prob = model.predict_proba(input_data)
+
+    st.write(f"---")
     
     # Display the result
     gender = "Male" if prediction[0] == 0 else "Female"
     st.write(f"The predicted gender is: {gender}")
+    
+    st.write(f"---")
+    st.write(f"Probabilities for each gender:")
+    st.write(f"{prob}")
+
+
